@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="text-success">Payment Successful ✅</h2>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Bills</a>
+</div>
+{% endblock %}
+
+</body>
+</html>

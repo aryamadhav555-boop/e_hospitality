@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Create Bill</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Patient</label>
+            {{ form.patient }}
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            {{ form.description }}
+        </div>
+
+        <div class="mb-3">
+            <label>Amount</label>
+            {{ form.amount }}
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Create Bill
+        </button>
+    </form>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

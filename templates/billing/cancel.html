@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="text-danger">Payment Cancelled ❌</h2>
+    <a href="{% url 'billing_home' %}" class="btn btn-secondary mt-3">Back</a>
+</div>
+{% endblock %}
+
+</body>
+</html>

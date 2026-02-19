@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Billing & Payments</h2>
+
+    <!-- Insurance Info -->
+    <div class="card mb-4">
+        <div class="card-header">Insurance Information</div>
+        <div class="card-body">
+            {% if insurance %}
+                <p><strong>Provider:</strong> {{ insurance.provider_name }}</p>
+                <p><strong>Policy No:</strong> {{ insurance.policy_number }}</p>
+                <p><strong>Coverage:</strong> ₹ {{ insurance.coverage_amount }}</p>
+            {% else %}
+                <p>No insurance information available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bills Table -->
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for bill in bills %}
+        <tr>
+            <td>{{ bill.id }}</td>
+            <td>{{ bill.description }}</td>
+            <td>₹ {{ bill.amount }}</td>
+            <td>
+                {% if bill.is_paid %}
+                    <span class="text-success">Paid</span>
+                {% else %}
+                    <span class="text-danger">Pending</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if not bill.is_paid %}
+                    <a href="{% url 'pay_bill' bill.id %}" class="btn btn-primary btn-sm">
+                        Pay Now
+                    </a>
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

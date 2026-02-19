@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Doctor Dashboard</h2>
+
+<div class="card p-4 shadow">
+    <p>Manage your appointments and patient records.</p>
+
+    <a href="/appointments/" class="btn btn-info">View Appointments</a>
+
+</div>
+<a href="{% url 'create_bill' %}" class="btn btn-primary">
+    Create New Bill
+</a>
+
+
+{% endblock %}
+
+</body>
+</html>
